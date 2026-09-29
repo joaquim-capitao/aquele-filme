@@ -12,19 +12,20 @@
 
   <style>
     :root {
-      /* Cores baseadas no design da página */
-      --bg: #1c1b24; /* Fundo escuro azulado/acinzentado */
-      --card-bg: rgba(255, 255, 255, 0.03);
-      --card-border: rgba(255, 255, 255, 0.06);
-      --card-hover-border: rgba(243, 112, 34, 0.4);
-      --card-hover-bg: rgba(243, 112, 34, 0.05);
+      /* Esquema Claro Pastel */
+      --bg: #fbf9f5;                  /* Fundo suave em tom creme / off-white */
+      --card-bg: #ffffff;              /* Cartões e botões a branco nítido */
+      --card-border: #e5ded6;          /* Linhas divisórias em tom pastel subtil */
+      --card-hover-border: #b85d43;    /* Realce com terracota pastel no hover */
+      --card-hover-bg: #fdf6f3;        /* Fundo do hover com nuance avermelhada suave */
       
-      --accent: #f37022; /* Laranja dos títulos */
-      --text-link: #7a8add; /* Azul suave dos links */
-      --text-date: #c8b975; /* Amarelado das datas e subtítulo */
+      --accent: #b85d43;               /* Terracota pastel suave para o título e destaques */
+      --text-link: #2d3142;            /* Ardósia escuro para excelente contraste e legibilidade */
+      --text-link-accent: #5a739b;     /* Azul ardósia pastel */
+      --text-date: #6b7280;            /* Cinzento neutro para datas, metadados e subtítulos */
       
-      --accent-glow: rgba(243, 112, 34, 0.15);
-      --shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+      --accent-glow: rgba(184, 93, 67, 0.12);
+      --shadow: 0 4px 15px -2px rgba(45, 49, 66, 0.05);
     }
 
     * {
@@ -34,12 +35,14 @@
     }
 
     body {
-      font-family: 'Ubuntu', sans-serif;
+      font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text-link);
       min-height: 100vh;
-      line-height: 1.5;
+      line-height: 1.6;
       padding: 30px 20px 40px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
@@ -59,7 +62,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
+      padding: 8px 16px;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 999px;
@@ -68,6 +71,7 @@
       font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.02em;
+      box-shadow: var(--shadow);
       transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -122,7 +126,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 18px;
+      padding: 16px 20px;
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 12px;
@@ -140,8 +144,13 @@
 
     .chronicles-list .title {
       color: var(--text-link);
-      font-weight: 400;
-      font-size: 1.1rem;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.2s ease;
+    }
+
+    .chronicles-list a:hover .title {
+      color: var(--accent);
     }
 
     .chronicles-list .date {
@@ -164,14 +173,15 @@
     }
 
     .page-btn {
-      background-color: transparent;
-      border: 1px solid transparent;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
       color: var(--text-link);
-      padding: 6px 12px;
+      padding: 7px 14px;
       font-size: 0.9rem;
       border-radius: 8px;
       cursor: pointer;
       font-family: inherit;
+      box-shadow: var(--shadow);
       transition: all 0.2s ease;
     }
 
@@ -182,15 +192,16 @@
     }
 
     .page-btn.active {
-      background-color: var(--card-bg);
+      background-color: var(--card-hover-bg);
       border-color: var(--accent);
       color: var(--accent);
       font-weight: 700;
     }
 
     .page-btn:disabled {
-      opacity: 0.3;
+      opacity: 0.4;
       cursor: default;
+      box-shadow: none;
     }
 
     footer {
@@ -205,13 +216,11 @@
       gap: 6px;
       text-decoration: none;
       color: var(--text-date);
-      font-size: 0.85rem;
-      opacity: 0.7;
+      font-size: 0.88rem;
       transition: all 0.2s ease;
     }
 
     .footer-home-btn:hover {
-      opacity: 1;
       color: var(--accent);
     }
   </style>
@@ -220,7 +229,7 @@
 
   <main class="container">
     
-    <!-- Botão Elegante no Início -->
+    <!-- Botão no Início -->
     <nav class="top-nav" aria-label="Navegação Superior">
       <a href="https://joaquim-capitao.github.io/" class="nav-home-btn">
         <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -235,16 +244,13 @@
     </header>
     
     <ul class="chronicles-list" id="chronicles-list">
-
-     <li><a href="https://joaquim-capitao.github.io/aquele-filme/lista-de-filmes"><span class="title">Lista de Filmes</span></a></li>
-     <li><a href="https://joaquim-capitao.github.io/aquele-filme/historia"><span class="title">História do Cinema</span></a></li>
-     <li><a href="https://joaquim-capitao.github.io/aquele-filme/criticas"><span class="title">Críticas</span></a></li>
-     <li><a href="https://joaquim-capitao.github.io/aquele-filme/arquetipos"><span class="title">Arquétipos</span></a></li>
-     <li><a href="https://joaquim-capitao.github.io/aquele-filme/glossario"><span class="title">Glossário</span></a></li>
-     <li><a href="https://joaquim-capitao.github.io/aquele-filme/perolas"><span class="title">Pérolas</span></a></li>
-     <li><a href="https://joaquim-capitao.github.io/aquele-filme/links-externos"><span class="title">links-externos</span></a></li>
-
-
+      <li><a href="https://joaquim-capitao.github.io/aquele-filme/lista-de-filmes"><span class="title">Lista de Filmes</span></a></li>
+      <li><a href="https://joaquim-capitao.github.io/aquele-filme/historia"><span class="title">História do Cinema</span></a></li>
+      <li><a href="https://joaquim-capitao.github.io/aquele-filme/criticas"><span class="title">Críticas</span></a></li>
+      <li><a href="https://joaquim-capitao.github.io/aquele-filme/arquetipos"><span class="title">Arquétipos</span></a></li>
+      <li><a href="https://joaquim-capitao.github.io/aquele-filme/glossario"><span class="title">Glossário</span></a></li>
+      <li><a href="https://joaquim-capitao.github.io/aquele-filme/perolas"><span class="title">Pérolas</span></a></li>
+      <li><a href="https://joaquim-capitao.github.io/aquele-filme/links-externos"><span class="title">Ligações Externas</span></a></li>
     </ul>
 
     <!-- Navegação de Páginas -->
