@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinema</title>
+  
+  <!-- Fonte Ubuntu do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Esquema Claro Pastel */
+      --bg: #fbf9f5;                  /* Fundo suave em tom creme / off-white */
+      --card-bg: #ffffff;              /* Cartões e botões a branco nítido */
+      --card-border: #e5ded6;          /* Linhas divisórias em tom pastel subtil */
+      --card-hover-border: #b85d43;    /* Realce com terracota pastel no hover */
+      --card-hover-bg: #fdf6f3;        /* Fundo do hover com nuance avermelhada suave */
+      
+      --accent: #b85d43;               /* Terracota pastel suave para o título e destaques */
+      --text-link: #2d3142;            /* Ardósia escuro para excelente contraste e legibilidade */
+      --text-link-accent: #5a739b;     /* Azul ardósia pastel */
+      --text-date: #6b7280;            /* Cinzento neutro para datas, metadados e subtítulos */
+      
+      --accent-glow: rgba(184, 93, 67, 0.12);
+      --shadow: 0 4px 15px -2px rgba(45, 49, 66, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-link);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 30px 20px 40px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Barra Superior com o Link de Retorno */
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 24px;
+    }
+
+    .nav-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      color: var(--text-date);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      box-shadow: var(--shadow);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-home-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-home-btn:hover {
+      color: var(--accent);
+      border-color: var(--card-hover-border);
+      background-color: var(--card-hover-bg);
+      transform: translateX(-2px);
+      box-shadow: 0 4px 14px -2px var(--accent-glow);
+    }
+
+    .nav-home-btn:hover svg {
+      transform: translateX(-2px);
+    }
+
+    header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+ 
+    .subtitle {
+      color: var(--text-date);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+
+    .chronicles-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .chronicles-list a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .chronicles-list a:hover {
+      transform: translateY(-2px);
+      border-color: var(--card-hover-border);
+      background-color: var(--card-hover-bg);
+      box-shadow: 0 8px 24px -4px var(--accent-glow);
+    }
+
+    .chronicles-list .title {
+      color: var(--text-link);
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.2s ease;
+    }
+
+    .chronicles-list a:hover .title {
+      color: var(--accent);
+    }
+
+    .chronicles-list .date {
+      color: var(--text-date);
+      font-size: 0.9rem;
+      font-weight: 400;
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    /* Paginação */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .page-btn {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-link);
+      padding: 7px 14px;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+    }
+
+    .page-btn:hover:not(:disabled) {
+      border-color: var(--card-hover-border);
+      background-color: var(--card-hover-bg);
+      color: var(--accent);
+    }
+
+    .page-btn.active {
+      background-color: var(--card-hover-bg);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .page-btn:disabled {
+      opacity: 0.4;
+      cursor: default;
+      box-shadow: none;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+    }
+
+    .footer-home-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--text-date);
+      font-size: 0.88rem;
+      transition: all 0.2s ease;
+    }
+
+    .footer-home-btn:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    
+    <!-- Botão no Início -->
+    <nav class="top-nav" aria-label="Navegação Superior">
+      <a href="https://joaquim-capitao.github.io/cinema" class="nav-home-btn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+        </svg>
+        <span>Página Inicial</span>
+      </a>
+    </nav>
+
+    <header>
+      <h1 id="cinema">Cinema</h1>
+    </header>
+    
+    <ul class="chronicles-list" id="chronicles-list">
+      <li><a href="https://joaquim-capitao.github.io/cinema/critica/filme1"><span class="title">Filme 1</span></a></li>
+      <li><a href="https://joaquim-capitao.github.io/cinema/critica/filme2"><span class="title">Filme 2</span></a></li>
+
+    </ul>
+
+    <!-- Navegação de Páginas -->
+    <nav class="pagination" id="pagination" aria-label="Navegação das crónicas"></nav>
+
+    <footer>
+      <a href="https://joaquim-capitao.github.io/Cinema" class="footer-home-btn" title="Página Inicial">
+        <span>← Voltar à Página Anterior</span>
+      </a>
+    </footer>
+
+  </main>
+
+  <script>
+    const ITEMS_PER_PAGE = 100;
+    const list = document.getElementById('chronicles-list');
+    const items = Array.from(list.children);
+    const paginationContainer = document.getElementById('pagination');
+    const totalPages = Math.ceil(items.length / ITEMS_PER_PAGE);
+
+    function showPage(page) {
+      const start = (page - 1) * ITEMS_PER_PAGE;
+      const end = start + ITEMS_PER_PAGE;
+
+      items.forEach((item, index) => {
+        item.style.display = (index >= start && index < end) ? '' : 'none';
+      });
+
+      renderPagination(page);
+    }
+
+    function renderPagination(currentPage) {
+      if (totalPages <= 1) {
+        paginationContainer.innerHTML = '';
+        return;
+      }
+
+      paginationContainer.innerHTML = '';
+
+      // Botão Anterior
+      const prevBtn = document.createElement('button');
+      prevBtn.className = 'page-btn';
+      prevBtn.textContent = '← Anterior';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.onclick = () => {
+        showPage(currentPage - 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      paginationContainer.appendChild(prevBtn);
+
+      // Botões numéricos
+      for (let i = 1; i <= totalPages; i++) {
+        const numBtn = document.createElement('button');
+        numBtn.className = 'page-btn' + (i === currentPage ? ' active' : '');
+        numBtn.textContent = i;
+        numBtn.onclick = () => {
+          showPage(i);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        paginationContainer.appendChild(numBtn);
+      }
+
+      // Botão Seguinte
+      const nextBtn = document.createElement('button');
+      nextBtn.className = 'page-btn';
+      nextBtn.textContent = 'Seguinte →';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.onclick = () => {
+        showPage(currentPage + 1);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+      paginationContainer.appendChild(nextBtn);
+    }
+
+    // Inicialização na primeira página
+    showPage(1);
+  </script>
+
+</body>
+</html>
