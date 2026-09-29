@@ -3,8 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vídeos</title>
+  <title>Pérolas — Cinema</title>
+  
+  <!-- Fonte Ubuntu do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================================================
+       VARIÁVEIS GLOBAIS (Esquema Claro Pastel)
+       ========================================================================== */
+    :root {
+      --bg: #fbf9f5;                  /* Fundo suave creme / off-white */
+      --card-bg: #ffffff;              /* Branco puro para cartões e molduras */
+      --card-border: #e5ded6;          /* Linha divisória em tom pastel subtil */
+      --accent: #b85d43;               /* Terracota pastel suave para títulos e ênfase */
+      --text-main: #2d3142;            /* Ardósia escuro para leitura nítida */
+      --text-muted: #6b7280;           /* Cinzento neutro para legendas e subtítulo */
+      --shadow: 0 4px 20px -2px rgba(45, 49, 66, 0.07);
+    }
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -12,13 +31,16 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+      font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 1.5rem 1rem;
+      padding: 2.5rem 1.2rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
@@ -29,21 +51,43 @@
       gap: 2rem;
     }
 
+    header {
+      margin-bottom: 1rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 400;
+    }
+
     .video-item {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 1rem;
     }
 
     /* Contentor responsivo para manter a proporção 16:9 */
     .video-wrapper {
       position: relative;
       width: 100%;
-      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      padding-bottom: 56.25%; /* Proporção 16:9 */
       height: 0;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
       background-color: #000;
     }
 
@@ -57,22 +101,42 @@
     }
 
     .video-description {
-      font-size: 1rem;
-      color: #cbd5e1;
+      font-size: 0.98rem;
+      color: var(--text-main);
       padding: 0 0.25rem;
     }
 
     hr.divider {
       border: 0;
       height: 1px;
-      background: #334155;
-      margin-top: 1rem;
+      background: var(--card-border);
+      margin-top: 1.25rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      .subtitle {
+        font-size: 0.95rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <main class="container">
+    
+    <header>
+      <h1>Pérolas</h1>
+      <p class="subtitle">Cenas sem muito sentido, mas que funcionaram.</p>
+    </header>
+
     <!-- Primeiro Vídeo -->
     <div class="video-item">
       <div class="video-wrapper">
@@ -85,7 +149,7 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-description">O inspetor francês Clouseau contrata uma professora para aprender a pronunciar palavras em inglês. - The Pink Panther (2006)</p>
+      <p class="video-description">O inspetor francês Clouseau contrata uma professora para aprender a pronunciar palavras em inglês. — <em>The Pink Panther</em> (2006)</p>
       <hr class="divider">
     </div>
 
@@ -101,7 +165,7 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-description">O agente Maxwell Smart improvisa uma dança - Get Smart (2008)</p>
+      <p class="video-description">O agente Maxwell Smart improvisa uma dança — <em>Olho Vivo</em> / <em>Get Smart</em> (2008)</p>
       <hr class="divider">
     </div>
 
@@ -117,12 +181,10 @@
           allowfullscreen>
         </iframe>
       </div>
-      <p class="video-description">A cena do avião. Hot Shots! (1991)  (</p>
+      <p class="video-description">A cena do avião — <em>As Asas do Desatino</em> / <em>Hot Shots!</em> (1991)</p>
     </div>
 
-    
   </main>
 
 </body>
 </html>
-
