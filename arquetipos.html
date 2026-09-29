@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquétipos Narrativos no Cinema</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       VARIÁVEIS GLOBAIS (Esquema Claro Pastel)
+       ========================================================================== */
+    :root {
+      --bg-main: #fbf9f5;          /* Creme suave / off-white */
+      --bg-card: #ffffff;          /* Cartões e tabela a branco nítido */
+      --bg-subtle: #f6f3ee;        /* Cabeçalho e alternância de linhas */
+      --bg-hover: #ede8e0;         /* Realce pastel ao passar o cursor */
+      --text-main: #2d3142;        /* Ardósia escuro para ótima legibilidade */
+      --text-muted: #6b7280;       /* Cinzento neutro para dados secundários */
+      --accent: #5a739b;           /* Azul ardósia pastel com bom contraste */
+      --accent-warm: #b85d43;      /* Terracota pastel suave para títulos */
+      --border-color: #e5ded6;     /* Linhas e separadores subtis */
+      --font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 32px 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .table-container {
+      width: 100%;
+      max-width: 1120px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px -5px rgba(45, 49, 66, 0.08), 0 4px 12px -2px rgba(45, 49, 66, 0.04);
+      border: 1px solid var(--border-color);
+    }
+
+    .table-header {
+      padding: 28px 32px;
+      background-color: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .table-header h2 {
+      margin: 0 0 6px 0;
+      color: var(--accent-warm);
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .table-header p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 400;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--bg-subtle);
+      color: var(--text-main);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 700;
+      padding: 16px 20px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      vertical-align: top;
+      color: var(--text-main);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #faf8f5;
+    }
+
+    tr:hover {
+      background-color: var(--bg-hover);
+      transition: background-color 0.15s ease-in-out;
+    }
+
+    .archetype-name {
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      display: block;
+      font-size: 0.98rem;
+    }
+
+    .archetype-alt {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: block;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .examples {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* ==========================================================================
+       OTIMIZAÇÃO PARA DISPOSITIVOS MÓVEIS (Ecrãs <= 820px)
+       ========================================================================== */
+    @media (max-width: 820px) {
+      body {
+        padding: 16px 10px;
+      }
+
+      .table-container {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+      }
+
+      .table-header {
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        margin-bottom: 16px;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .table-header h2 {
+        font-size: 1.35rem;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none; /* Oculta a linha de títulos tradicional */
+      }
+
+      tr {
+        background: var(--bg-card) !important;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        padding: 16px;
+        box-shadow: 0 4px 12px rgba(45, 49, 66, 0.05);
+      }
+
+      td {
+        border: none;
+        padding: 10px 0;
+        font-size: 0.92rem;
+        display: flex;
+        flex-direction: column;
+      }
+
+      td:first-child {
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 12px;
+        margin-bottom: 8px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--accent-warm);
+        margin-bottom: 4px;
+      }
+
+      td:first-child::before {
+        display: none;
+      }
+
+      .archetype-name {
+        font-size: 1.15rem;
+        color: var(--accent);
+      }
+
+      .archetype-alt {
+        font-size: 0.85rem;
+        margin-top: 1px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="table-container">
+    <div class="table-header">
+      <h2>Arquétipos Narrativos no Cinema</h2>
+      <p>Estrutura dramática fundamentada nos modelos de Carl Jung e Christopher Vogler</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 20%;">Arquétipo</th>
+          <th style="width: 33%;">Função Dramática</th>
+          <th style="width: 25%;">Características Principais</th>
+          <th style="width: 22%;">Exemplos no Cinema</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">O Herói / A Heroína</span>
+            <span class="archetype-alt">Protagonista</span>
+          </td>
+          <td data-label="Função Dramática">Serve de perspetiva ao espectador; enfrenta uma vulnerabilidade inicial, toma as decisões morais cruciais e passa pela maior transformação existencial.</td>
+          <td data-label="Características Principais">Muitas vezes relutante no começo; descobre forças ocultas e sacrifica o egoísmo pelo bem comum.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Neo (<em>Matrix</em>), Jamal Malik (<em>Quem Quer Ser Bilionário?</em>), Truman Burbank (<em>The Truman Show</em>), Lincoln Six Echo (<em>The Island</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">O Mentor / A Mentora</span>
+            <span class="archetype-alt">A Voz da Sabedoria</span>
+          </td>
+          <td data-label="Função Dramática">Instrui, motiva e equipa o protagonista com ferramentas e conhecimentos indispensáveis para enfrentar o desconhecido.</td>
+          <td data-label="Características Principais">Fonte de discernimento ético ou filosófico; afasta-se ou delega no momento decisivo para que o herói atue sozinho.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Morpheus e O Oráculo (<em>Matrix</em>), Nanisca (<em>A Mulher Rei</em>), Terrence Bundley (<em>Yes Man</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">A Sombra</span>
+            <span class="archetype-alt">O Antagonista</span>
+          </td>
+          <td data-label="Função Dramática">Constitui a ameaça principal e simboliza os receios mais profundos e as forças opressivas da trama.</td>
+          <td data-label="Características Principais">Determinado e inflexível; atua frequentemente com base em convicções próprias ou desígnios megalómanos.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Agente Smith (<em>Matrix</em>), Dr. Bernard Merrick (<em>The Island</em>), Lord Blackwood (<em>Sherlock Holmes</em>), Christof (<em>The Truman Show</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">A Mulher Fatal</span>
+            <span class="archetype-alt">Femme Fatale / Sedutora</span>
+          </td>
+          <td data-label="Função Dramática">Desvia o protagonista do seu trajeto através do encanto, do jogo duplo e do mistério, quebrando certezas estabelecidas.</td>
+          <td data-label="Características Principais">Inteligente, magnética e ardilosa; domina os diálogos e desafia as intenções dos que tentam controlá-la.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Irene Adler (<em>Sherlock Holmes</em>), Xania (<em>The Pink Panther</em>), Chel (<em>O Caminho para El Dorado</em>), Tatão (<em>O Pai Tirano</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">A Matriarca / Protetora</span>
+            <span class="archetype-alt">Grande Mãe / Cuidadora</span>
+          </td>
+          <td data-label="Função Dramática">Dá suporte incondicional, refúgio e proteção física e emocional perante cenários desumanizadores.</td>
+          <td data-label="Características Principais">Instinto de guarda implacável; assume a defesa combativa dos seus sem hesitar face ao perigo.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Nanisca e Izogie (<em>A Mulher Rei</em>), Margaret «Molly» Brown (<em>Titanic</em>), Dona Teresa (<em>O Pai Tirano</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">A Donzela Transgressora</span>
+            <span class="archetype-alt">A Guerreira Indómita</span>
+          </td>
+          <td data-label="Função Dramática">Recusa a passividade e desafia as restrições sociais ou ordens vigentes para forjar o seu próprio rumo.</td>
+          <td data-label="Características Principais">Independente, audaz e resistente; afirma a sua identidade pela rebelião ou pela ação direta.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Rose DeWitt Bukater (<em>Titanic</em>), Princesa Fiona (<em>Shrek</em>), Nawi (<em>A Mulher Rei</em>), Agente 99 (<em>Olho Vivo</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">O Guardião do Limiar</span>
+            <span class="archetype-alt">Guardião da Fronteira</span>
+          </td>
+          <td data-label="Função Dramática">Põe à prova a persistência e coragem do protagonista no limiar da transição para um novo território ou estado de espírito.</td>
+          <td data-label="Características Principais">Barreira física ou institucional; deve ser contornado com perícia, superado pela astúcia ou apaziguado.</td>
+          <td data-label="Exemplos no Cinema" class="examples">A Dragão (<em>Shrek</em>), Albert Laurent e equipa de mercenários (<em>The Island</em>), Prem Kumar (<em>Quem Quer Ser Bilionário?</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">O Arauto</span>
+            <span class="archetype-alt">O Mensageiro</span>
+          </td>
+          <td data-label="Função Dramática">Entrega o apelo para a aventura e abala a rotina, assinalando que a mudança é inevitável.</td>
+          <td data-label="Características Principais">Surge com uma mensagem, um objeto inesperado ou um anúncio que despoleta a saída da zona de conforto.</td>
+          <td data-label="Exemplos no Cinema" class="examples">A mensagem no computador e a «Mulher do Coelho Branco» (<em>Matrix</em>), Nick Cavanaugh (<em>Yes Man</em>), O mapa de Cortés (<em>O Caminho para El Dorado</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">O Camaleão</span>
+            <span class="archetype-alt">Shapeshifter</span>
+          </td>
+          <td data-label="Função Dramática">Espalha incerteza moral e desconfiança na trama, deixando as suas lealdades em aberto até ao momento crucial.</td>
+          <td data-label="Características Principais">Muda de alianças ou esconde a sua identidade; gera suspense relativamente aos seus verdadeiros motivos.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Cypher (<em>Matrix</em>), Babe Bennett (<em>Mr. Deeds</em>), Cal Hockley (<em>Titanic</em>), Chico / Conde de Saldanha (<em>O Pai Tirano</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">O Pícaro / O Trapaceiro</span>
+            <span class="archetype-alt">Trickster / Alívio Cómico</span>
+          </td>
+          <td data-label="Função Dramática">Alivia a tensão dramática, satiriza o poder e provoca reviravoltas humorísticas através da audácia ou do acaso.</td>
+          <td data-label="Características Principais">Imprevisível, irreverente e extravagante; contorna regras rígidas através do engenho e do gracejo.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Inspetor Jacques Clouseau (<em>The Pink Panther</em>), Maxwell Smart (<em>Olho Vivo</em>), James Carter (<em>Hora de Ponta</em>), Burro (<em>Shrek</em>), Túlio e Miguel (<em>O Caminho para El Dorado</em>)</td>
+        </tr>
+        <tr>
+          <td data-label="Arquétipo">
+            <span class="archetype-name">O Aliado / A Companheira</span>
+            <span class="archetype-alt">Bússola Moral</span>
+          </td>
+          <td data-label="Função Dramática">Dá suporte prático, perícia técnica e apoio leal, mantendo o protagonista firme nos momentos de desespero.</td>
+          <td data-label="Características Principais">Fiel e dedicado; complementa as fraquezas do herói e humaniza a sua demanda.</td>
+          <td data-label="Exemplos no Cinema" class="examples">Dr. John Watson (<em>Sherlock Holmes</em>), Trinity (<em>Matrix</em>), Inspetor Lee (<em>Hora de Ponta</em>), Gendarm Gilbert Ponton (<em>The Pink Panther</em>), Santana (<em>O Pai Tirano</em>)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
