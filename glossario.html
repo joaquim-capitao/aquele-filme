@@ -4,17 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glossário e Terminologia de Cinema — Versão Portugal</title>
+  
+  <!-- Fonte Ubuntu do Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
   <style>
+    /* ==========================================================================
+       VARIÁVEIS GLOBAIS (Esquema Claro Pastel)
+       ========================================================================== */
     :root {
-      --bg-color: #0b132b;
-      --card-bg: #1c2541;
-      --card-border: #3a506b;
-      --text-main: #f0f4f8;
-      --text-muted: #b0c4de;
-      --accent-gold: #f4b266;
-      --accent-cyan: #48cae4;
-      --tag-bg: #273b5e;
-      --code-bg: #121a30;
+      --bg-color: #fbf9f5;          /* Creme suave / off-white */
+      --card-bg: #ffffff;           /* Cartões em branco nítido */
+      --card-border: #e5ded6;       /* Divisórias em tom pastel subtil */
+      --text-main: #2d3142;         /* Ardósia escuro para excelente contraste */
+      --text-muted: #6b7280;        /* Cinzento neutro para explicações e notas */
+      --accent-warm: #b85d43;       /* Terracota pastel para títulos e ênfase */
+      --accent-blue: #5a739b;       /* Azul ardósia pastel para secções e crachás */
+      --tag-bg: #edf2f7;            /* Fundo suave em azul-acinzentado pastel para crachás */
+      --hover-bg: #fdfaf7;          /* Nuance subtil no hover dos cartões */
+      --shadow: 0 4px 15px -2px rgba(45, 49, 66, 0.05);
+      --font-family: "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
 
     * {
@@ -26,9 +37,11 @@
     body {
       background-color: var(--bg-color);
       color: var(--text-main);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: var(--font-family);
       line-height: 1.6;
       padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
@@ -44,23 +57,25 @@
     }
 
     header h1 {
-      font-size: 2.3rem;
-      color: var(--accent-gold);
-      letter-spacing: -0.5px;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent-warm);
+      letter-spacing: -0.02em;
       margin-bottom: 10px;
     }
 
     header p {
       color: var(--text-muted);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
 
     .section-title {
-      font-size: 1.5rem;
-      color: var(--accent-cyan);
-      margin: 35px 0 20px 0;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin: 40px 0 20px 0;
       padding-left: 12px;
-      border-left: 4px solid var(--accent-cyan);
+      border-left: 4px solid var(--accent-blue);
       display: flex;
       align-items: center;
     }
@@ -74,56 +89,62 @@
     .card {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 18px 20px;
-      transition: transform 0.15s ease, border-color 0.15s ease;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
     }
 
     .card:hover {
-      border-color: var(--accent-cyan);
+      border-color: var(--accent-warm);
+      background-color: var(--hover-bg);
       transform: translateY(-2px);
     }
 
     .card h3 {
       font-size: 1.15rem;
-      color: var(--accent-gold);
+      font-weight: 700;
+      color: var(--accent-warm);
       margin-bottom: 8px;
     }
 
     .card p {
       font-size: 0.95rem;
       color: var(--text-muted);
+      line-height: 1.55;
     }
 
     .card strong {
-      color: #ffffff;
+      color: var(--text-main);
+      font-weight: 700;
     }
 
     .badge {
       display: inline-block;
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       background: var(--tag-bg);
-      color: var(--accent-cyan);
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-bottom: 8px;
-      font-weight: 600;
+      color: var(--accent-blue);
+      padding: 3px 9px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.04em;
     }
 
-    /* Coreografia vocal / lista corrida */
+    /* Coreografia vocal / lista sequencial */
     .timeline {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 8px;
+      border-radius: 10px;
       padding: 25px;
       margin-top: 15px;
+      box-shadow: var(--shadow);
     }
 
     .timeline-step {
       display: flex;
-      margin-bottom: 15px;
+      margin-bottom: 16px;
       align-items: baseline;
     }
 
@@ -133,8 +154,8 @@
 
     .step-num {
       background: var(--tag-bg);
-      color: var(--accent-gold);
-      font-weight: bold;
+      color: var(--accent-warm);
+      font-weight: 700;
       width: 28px;
       height: 28px;
       border-radius: 50%;
@@ -147,17 +168,17 @@
     }
 
     .step-content {
-      font-size: 1rem;
+      font-size: 0.98rem;
     }
 
     .speaker {
-      color: var(--accent-cyan);
-      font-weight: 600;
+      color: var(--accent-blue);
+      font-weight: 700;
       margin-right: 8px;
     }
 
     .quote {
-      color: #ffffff;
+      color: var(--text-main);
       font-style: italic;
     }
 
@@ -167,7 +188,19 @@
       padding-top: 20px;
       border-top: 1px solid var(--card-border);
       color: var(--text-muted);
-      font-size: 0.85rem;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 24px 14px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -175,7 +208,7 @@
   <div class="container">
     <header>
       <h1>Glossário de Cinema & Terminologia de Rodagem</h1>
-      <p>Termos técnicos, tipos de planos, linguagem cinematográfica e práticas habituais nos <em>plateaux</em> em Portugal.</p>
+      <p>Termos técnicos, técnicas de realização, som, efeitos e linguagem de plateau em Portugal.</p>
     </header>
 
     <!-- CARGOS E HIERARQUIA EM PORTUGAL -->
@@ -184,73 +217,73 @@
       <div class="card">
         <span class="badge">Direção Artística</span>
         <h3>Realizador(a)</h3>
-        <p>Em Portugal diz-se sempre <strong>realizador</strong> e <strong>realização</strong>. Autor e líder da visão artística unificada, conduzindo atores, fotografia e montagem.</p>
+        <p>Em Portugal diz-se sempre <strong>realizador</strong> e <strong>realização</strong>. Autor e líder da visão artística unificada, conduzindo atores, fotografia e montagem[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Produção</span>
         <h3>Diretor de Produção</h3>
-        <p>Gere o orçamento de rodagem, contratações no terreno, equipamentos e viabilidade logística direta da produção.</p>
+        <p>Gere o orçamento de rodagem, contratações no terreno, equipamentos e viabilidade logística direta da produção[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Plateau / Direção</span>
         <h3>1.º Assistente de Realização (1.º AR)</h3>
-        <p>O gestor operacional do <em>plateau</em>. Controla horários, segurança, disciplina e profere os comandos oficiais de início e corte das tomadas.</p>
+        <p>O gestor operacional do <em>plateau</em>. Controla horários, segurança, disciplina e profere os comandos oficiais de início e corte das tomadas[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Continuidade</span>
         <h3>Anotador(a) / Continuísta</h3>
-        <p>Regista minuciosamente a continuidade de cada tomada (ações, posições, copas, quebras de eixo) e redige as folhas de anotação para o montador.</p>
+        <p>Regista minuciosamente a continuidade de cada tomada (ações, posições, copas, quebras de eixo) e redige as folhas de anotação para o montador[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Imagem</span>
         <h3>Diretor de Fotografia (DF / DoP)</h3>
-        <p>Cria a atmosfera visual da obra: iluminação, enquadramento, escolha de óticas e câmaras, chefiando a imagem, elétrica e maquinaria.</p>
+        <p>Cria a atmosfera visual da obra: iluminação, enquadramento, escolha de óticas e câmaras, chefiando a imagem, elétrica e maquinaria[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Câmara</span>
         <h3>1.º Assistente de Imagem (Foquista)</h3>
-        <p>Trabalho técnico de grande rigor; mede distâncias e garante o foco contínuo das óticas em tempo real durante a tomada.</p>
+        <p>Trabalho técnico de grande rigor; mede distâncias e garante o foco contínuo das óticas em tempo real durante a tomada[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Câmara</span>
         <h3>2.º Assistente de Imagem / Claquetista</h3>
-        <p>Muda lentes, gere cartões e suportes de gravação, mantém os relatórios de câmara e bate a claquete.</p>
+        <p>Muda lentes, gere cartões e suportes de gravação, mantém os relatórios de câmara e bate a claquete[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Iluminação</span>
         <h3>Chefe Eletricista (Gaffer)</h3>
-        <p>Responsável pela equipa de iluminação, geradores, cablagem e montagem prática dos projetores sob a orientação do DF.</p>
+        <p>Responsável pela equipa de iluminação, geradores, cablagem e montagem prática dos projetores sob a orientação do DF[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Maquinaria</span>
         <h3>Maquinista Chefe (Key Grip)</h3>
-        <p>Supervisiona os suportes mecânicos: calhas e carris de <em>travelling</em>, gruas, tripés e armações de difusão de luz (tecidos e bandeiras).</p>
+        <p>Supervisiona os suportes mecânicos: calhas e carris de <em>travelling</em>, gruas, tripés e armações de difusão de luz (tecidos e bandeiras)[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Som</span>
         <h3>Chefe de Som & Perchista</h3>
-        <p>O <strong>chefe de som</strong> capta e mistura o som direto multicanal. O <strong>perchista</strong> empunha a vara (percha) para posicionar o microfone com precisão sem entrar no enquadramento.</p>
+        <p>O <strong>chefe de som</strong> capta e mistura o som direto multicanal[cite: 4]. O <strong>perchista</strong> empunha a vara (percha) para posicionar o microfone com precisão sem entrar no enquadramento[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Arte</span>
         <h3>Diretor de Arte / Cenógrafo</h3>
-        <p>Concebe a identidade física e espacial da obra: adereços, mobiliário, decoração de interiores e cenários construídos.</p>
+        <p>Concebe a identidade física e espacial da obra: adereços, mobiliário, decoração de interiores e cenários construídos[cite: 4].</p>
       </div>
 
       <div class="card">
         <span class="badge">Pós-Produção</span>
         <h3>Montador(a)</h3>
-        <p>Em Portugal usa-se habitualmente <strong>montador</strong> em vez de editor. Dá ritmo, concatena planos e estrutura a narrativa na montagem.</p>
+        <p>Em Portugal usa-se habitualmente <strong>montador</strong> em vez de editor[cite: 4]. Dá ritmo, concatena planos e estrutura a narrativa na montagem[cite: 4].</p>
       </div>
     </div>
 
@@ -259,32 +292,32 @@
     <div class="grid">
       <div class="card">
         <h3>Plateau (ou Plató)</h3>
-        <p>O recinto ou espaço físico onde a rodagem tem lugar, seja em estúdio construído ou em local real intervencionado.</p>
+        <p>O recinto ou espaço físico onde a rodagem tem lugar, seja em estúdio construído ou em local real intervencionado[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Folha de Serviço (Convocatória)</h3>
-        <p>O equivalente à <em>call sheet</em>: documento emitido diariamente com ordens de chamada, cenas a filmar, elenco envolvido e moradas.</p>
+        <p>O equivalente à <em>call sheet</em>: documento emitido diariamente com ordens de chamada, cenas a filmar, elenco envolvido e moradas[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Decoração</h3>
-        <p>O cenário montado ou espaço adaptado e decorado pela equipa de arte para acolher a ação da cena.</p>
+        <p>O cenário montado ou espaço adaptado e decorado pela equipa de arte para acolher a ação da cena[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Repérage</h3>
-        <p>Trabalho de prospeção, reconhecimento e seleção de exteriores ou interiores antes do arranque das filmagens.</p>
+        <p>Trabalho de prospeção, reconhecimento e seleção de exteriores ou interiores antes do arranque das filmagens[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Travelling</h3>
-        <p>Movimento da câmara pelo espaço, quer seja montada sobre carris (calhas), suportes com rodas ou viaturas móveis.</p>
+        <p>Movimento da câmara pelo espaço, quer seja montada sobre carris (calhas), suportes com rodas ou viaturas móveis[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Lota</h3>
-        <p>Tradicionalmente o rolo de película virgem; no fluxo digital, refere-se habitualmente ao cartão ou suporte de armazenamento a uso.</p>
+        <p>Tradicionalmente o rolo de película virgem; no fluxo digital, refere-se habitualmente ao cartão ou suporte de armazenamento a uso[cite: 4].</p>
       </div>
     </div>
 
@@ -293,35 +326,35 @@
     <div class="timeline">
       <div class="timeline-step">
         <span class="step-num">1</span>
-        <div class="step-content"><span class="speaker">1.º Assistente:</span> <span class="quote">"Atenção, vamos rodar! Silêncio no plateau, por favor."</span></div>
+        <div class="step-content"><span class="speaker">1.º Assistente:</span> <span class="quote">"Atenção, vamos rodar! Silêncio no plateau, por favor."</span>[cite: 4]</div>
       </div>
       <div class="timeline-step">
         <span class="step-num">2</span>
-        <div class="step-content"><span class="speaker">1.º Assistente:</span> <span class="quote">"Roda o som!"</span></div>
+        <div class="step-content"><span class="speaker">1.º Assistente:</span> <span class="quote">"Roda o som!"</span>[cite: 4]</div>
       </div>
       <div class="timeline-step">
         <span class="step-num">3</span>
-        <div class="step-content"><span class="speaker">Chefe de Som:</span> <span class="quote">"O som vai!"</span> <em>(ou "Som a gravar!")</em></div>
+        <div class="step-content"><span class="speaker">Chefe de Som:</span> <span class="quote">"O som vai!"</span> <em>(ou "Som a gravar!")</em>[cite: 4]</div>
       </div>
       <div class="timeline-step">
         <span class="step-num">4</span>
-        <div class="step-content"><span class="speaker">1.º Assistente:</span> <span class="quote">"Roda a câmara!"</span></div>
+        <div class="step-content"><span class="speaker">1.º Assistente:</span> <span class="quote">"Roda a câmara!"</span>[cite: 4]</div>
       </div>
       <div class="timeline-step">
         <span class="step-num">5</span>
-        <div class="step-content"><span class="speaker">Assistente de Imagem / Operador:</span> <span class="quote">"Rola!"</span> <em>(ou "Quadro!")</em></div>
+        <div class="step-content"><span class="speaker">Assistente de Imagem / Operador:</span> <span class="quote">"Rola!"</span> <em>(ou "Quadro!")</em>[cite: 4]</div>
       </div>
       <div class="timeline-step">
         <span class="step-num">6</span>
-        <div class="step-content"><span class="speaker">2.º Assistente / Claquetista:</span> <span class="quote">"Plano 14, take 1"</span> <em>— bate a claquete</em></div>
+        <div class="step-content"><span class="speaker">2.º Assistente / Claquetista:</span> <span class="quote">"Plano 14, take 1"</span> <em>— bate a claquete</em>[cite: 4]</div>
       </div>
       <div class="timeline-step">
         <span class="step-num">7</span>
-        <div class="step-content"><span class="speaker">Realizador:</span> <span class="quote">"Ação!"</span></div>
+        <div class="step-content"><span class="speaker">Realizador:</span> <span class="quote">"Ação!"</span>[cite: 4]</div>
       </div>
       <div class="timeline-step">
         <span class="step-num">8</span>
-        <div class="step-content"><span class="speaker">Realizador:</span> <span class="quote">"Corta!"</span></div>
+        <div class="step-content"><span class="speaker">Realizador:</span> <span class="quote">"Corta!"</span>[cite: 4]</div>
       </div>
     </div>
 
@@ -330,91 +363,206 @@
     <div class="grid">
       <div class="card">
         <h3>Plano Geral</h3>
-        <p>Visão ampla e aberta do espaço ou paisagem, situando os intervenientes geograficamente.</p>
+        <p>Visão ampla e aberta do espaço ou paisagem, situando os intervenientes geograficamente[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Plano Americano</h3>
-        <p>Corta os intervenientes pela altura dos joelhos (típico do faroeste para manter o coldre e a pistola no enquadramento).</p>
+        <p>Corta os intervenientes pela altura dos joelhos (típico do faroeste para manter o coldre e a pistola no enquadramento)[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Plano Médio</h3>
-        <p>Enquadra a personagem a partir da cintura, equilibrando a postura física com o espaço circundante.</p>
+        <p>Enquadra a personagem a partir da cintura, equilibrando a postura física com o espaço circundante[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Primeiro Plano (Close-up)</h3>
-        <p>Focado no rosto (do peito/ombros para cima), captando subtilezas expressivas e carga dramática.</p>
+        <p>Focado no rosto (do peito/ombros para cima), captando subtilezas expressivas e carga dramática[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Plano Detalhe</h3>
-        <p>Isola um objeto ou elemento pontual (os olhos, uma carta, as horas num relógio).</p>
+        <p>Isola um objeto ou elemento pontual (os olhos, uma carta, as horas num relógio)[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Plano-Sequência</h3>
-        <p>Tomada contínua de longa duração, sem cortes, onde toda a cena se desenrola fluidamente.</p>
+        <p>Tomada contínua de longa duração, sem cortes, onde toda a cena se desenrola fluidamente[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Plano Holandês (Dutch Angle)</h3>
-        <p>Câmara intencionalmente inclinada no seu eixo horizontal para suscitar desassossego, desequilíbrio ou estranheza.</p>
+        <p>Câmara intencionalmente inclinada no seu eixo horizontal para suscitar desassossego, desequilíbrio ou estranheza[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Campo / Contra-Campo</h3>
-        <p>Alternância entre o ponto de vista de um interveniente e o interlocutor situado à sua frente num diálogo.</p>
+        <p>Alternância entre o ponto de vista de um interveniente e o interlocutor situado à sua frente num diálogo[cite: 4].</p>
       </div>
     </div>
 
-    <!-- MOVIMENTOS E TÉCNICAS -->
+    <!-- TÉCNICAS DE ILUMINAÇÃO E CÂMARA -->
+    <h2 class="section-title">Técnicas de Filmagem & Iluminação</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Ótica</span>
+        <h3>Rack Focus (Transição de Foco)</h3>
+        <p>Alteração deliberada da nitidez entre dois planos de profundidade distintos na mesma tomada, transferindo a atenção do espectador de uma personagem para outra sem cortar o plano.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Iluminação</span>
+        <h3>Chiaroscuro (Claro-Escuro)</h3>
+        <p>Uso de contrastes extremos entre luz forte e sombras densas. Muito característico do cinema expressionista alemão e do <em>film noir</em> para sublinhar ambiguidade moral e perigo.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Luz & Tom</span>
+        <h3>High-Key vs. Low-Key</h3>
+        <p><strong>High-key:</strong> iluminação brilhante, homogénea e quase sem sombras (comum em comédias e musicais). <strong>Low-key:</strong> iluminação sombria com sombras pronunciadas e proporção de contraste elevada (típica do suspense e terror).</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Movimento</span>
+        <h3>Steadicam & Gimbal</h3>
+        <p>Sistemas mecânicos de contra-pesos ou motores eletrónicos que anulam as vibrações do operador, permitindo planos móveis fluidos através de escadas, multidões e terrenos irregulares.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Estilo</span>
+        <h3>Câmara à Mão (Handheld)</h3>
+        <p>Câmara operada diretamente ao ombro, sem suportes estabilizadores. Transmite urgência, instabilidade, visceralidade ou estética quase documental.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Exposição</span>
+        <h3>Hora de Ouro (Magic Hour)</h3>
+        <p>O curto intervalo de luz natural imediatamente após o nascer do sol ou antes do pôr do sol, proporcionando uma luz difusa, avermelhada e sombras longas e suaves.</p>
+      </div>
+    </div>
+
+    <!-- LINGUAGEM SONORA E MÚSICA -->
+    <h2 class="section-title">Linguagem Sonora & Música de Cena</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Tensão Sonora</span>
+        <h3>Silêncio Dramático (Vácuo Acústico)</h3>
+        <p>Corte repentino ou subtração gradual de toda a banda sonora e ruídos de fundo. Amplifica exponencialmente o isolamento psicológico, o choque emocional ou a antecipação de um perigo iminente.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Estilo & Contraste</span>
+        <h3>Música Contrapontística (Contraponto Audiovisual)</h3>
+        <p>Técnica de associar uma música alegre, serena ou lírica a uma cena de violência extrema ou tragédia, gerando ironia dramática, estranheza e um impacto perturbador no espectador.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Montagem de Som</span>
+        <h3>J-Cut & L-Cut</h3>
+        <p><strong>J-cut:</strong> o som da cena seguinte entra antes do corte visual. <strong>L-cut:</strong> o áudio da cena anterior continua a ouvir-se mesmo após a imagem já ter transitado para o plano seguinte.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Composição</span>
+        <h3>Leitmotif (Motivo Condutor)</h3>
+        <p>Frase melódica recorrente associada a uma personagem, lugar, emoção ou ideia abstrata (ex.: o tema do tubarão de John Williams ou a marcha imperial de Darth Vader).</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Sonoplastia</span>
+        <h3>Ruído Ambiente / Sala (Room Tone)</h3>
+        <p>O som natural «silencioso» gravado no interior de cada espaço de rodagem, imprescindível para preencher vazios na montagem de diálogos sem gerar cortes audíveis bruscos.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Ficção Sonora</span>
+        <h3>Diegese (Diegético vs. Não-Diegético)</h3>
+        <p>Sons <em>diegéticos</em> pertencem ao mundo percetível pelas personagens (ex.: um rádio a tocar na sala)[cite: 4]; sons <em>não-diegéticos</em> pertencem exclusivamente à experiência do espectador (ex.: narração <em>off</em> ou música orquestral de apoio)[cite: 4].</p>
+      </div>
+    </div>
+
+    <!-- EFEITOS ESPECIAIS E VISUAIS -->
+    <h2 class="section-title">Efeitos Especiais & Visuais (SFX vs. VFX)</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Prático / Plateau</span>
+        <h3>Efeitos Práticos (SFX)</h3>
+        <p>Efeitos criados e filmados fisicamente no plateau durante a rodagem: pirotecnia real, cabos de suspensão, chuva artificial, próteses de maquilhagem e próteses animatrónicas.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Pós-Produção</span>
+        <h3>Efeitos Visuais Digitais (VFX)</h3>
+        <p>Manipulações imagéticas concebidas digitalmente no computador após a filmagem, englobando extensão de cenários, multidões digitais e criaturas inteiramente geradas por computador (CGI).</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Composição</span>
+        <h3>Incrustação (Chroma Key)</h3>
+        <p>Filmar atores à frente de um fundo uniforme verde ou azul para permitir a sua extração precisa e substituição posterior por qualquer cenário desenhado em pós-produção.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Performance</span>
+        <h3>Captura de Movimento (Mo-Cap / P-Cap)</h3>
+        <p>Registo dos movimentos corporais e expressões faciais de atores equipados com fatos especiais e sensores reflexivos, convertendo a representação humana num esqueleto digital aplicável a modelos virtuais.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Produção Virtual</span>
+        <h3>Parede de LED (Volume / StageCraft)</h3>
+        <p>Painéis de LED gigantescos que projetam fundos tridimensionais fotorrealistas em tempo real atrás dos atores, garantindo reflexos e iluminação natural autêntica no próprio plateau.</p>
+      </div>
+
+      <div class="card">
+        <span class="badge">Trucagem Ótica</span>
+        <h3>Perspetiva Forçada</h3>
+        <p>Ilusão de ótica prática conseguida através do posicionamento estratégico de atores e objetos a distâncias distintas da lente, fazendo com que pareçam muito maiores ou menores no mesmo plano sem recurso a efeitos digitais.</p>
+      </div>
+    </div>
+
+    <!-- MOVIMENTOS E MONTAGEM GERAL -->
     <h2 class="section-title">Linguagem, Movimentos e Montagem</h2>
     <div class="grid">
       <div class="card">
         <h3>Panorâmica (Pan) & Tilt</h3>
-        <p>A rotação da câmara no seu próprio eixo estacionário: horizontal (<strong>panorâmica</strong>) ou vertical (<strong>tilt</strong>).</p>
+        <p>A rotação da câmara no seu próprio eixo estacionário: horizontal (<strong>panorâmica</strong>) ou vertical (<strong>tilt</strong>)[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Dolly Zoom (Efeito Vertigo)</h3>
-        <p>Combina a aproximação física da câmara com o recuo ótico do zoom (ou vice-versa), distorcendo a perspetiva de fundo.</p>
+        <p>Combina a aproximação física da câmara com o recuo ótico do zoom (ou vice-versa), distorcendo a perspetiva de fundo[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Mise-en-scène</h3>
-        <p>Organização expressiva de tudo o que está visível em cena: luz, atores, adereços, movimentos e composição.</p>
-      </div>
-
-      <div class="card">
-        <h3>Diegese (Som Diegético vs. Não-Diegético)</h3>
-        <p>O universo ficcional da narrativa. Sons <em>diegéticos</em> pertencem ao mundo dos personagens; sons <em>não-diegéticos</em> (como a banda sonora orquestral) só são audíveis pelo espectador.</p>
+        <p>Organização expressiva de tudo o que está visível em cena: luz, atores, adereços, movimentos e composição[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Regra dos 180 Graus</h3>
-        <p>Eixo imaginário traçado entre duas figuras que a câmara não deve cruzar para não inverter a direção dos olhares do espectador.</p>
+        <p>Eixo imaginário traçado entre duas figuras que a câmara não deve cruzar para não inverter a direção dos olhares do espectador[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Montagem Paralela (Cross-Cutting)</h3>
-        <p>Alternância ritmada entre duas ou mais ações simultâneas em locais distintos, comum na criação de tensão dramática.</p>
+        <p>Alternância ritmada entre duas ou mais ações simultâneas em locais distintos, comum na criação de tensão dramática[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Jump Cut</h3>
-        <p>Corte abrupto no mesmo enquadramento temporal ou ligeiramente diferente, quebrando deliberadamente a continuidade contínua.</p>
+        <p>Corte abrupto no mesmo enquadramento temporal ou ligeiramente diferente, quebrando deliberadamente a continuidade contínua[cite: 4].</p>
       </div>
 
       <div class="card">
         <h3>Foley</h3>
-        <p>Recriação e gravação de ruídos e efeitos sonoros orgânicos em estúdio de pós-produção (passos, tecidos, portas rangentes).</p>
+        <p>Recriação e gravação de ruídos e efeitos sonoros orgânicos em estúdio de pós-produção (passos, tecidos, portas rangentes)[cite: 4].</p>
       </div>
     </div>
 
     <footer>
-      <p>Glossário compilado para consulta técnica rápida de cinema e audiovisuais &bull; Terminologia em Português Europeu</p>
+      <p>Glossário compilado para consulta técnica rápida de cinema e audiovisuais &bull; Terminologia em Português Europeu[cite: 4]</p>
     </footer>
   </div>
 </body>
