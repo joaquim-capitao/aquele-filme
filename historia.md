@@ -1,8 +1,8 @@
 # História do Cinema
 
-Há uma fria tarde de dezembro em Paris, no ano da graça de 1895, que resume com precisão cirúrgica a nossa eterna incapacidade de prever o futuro. No subterrâneo do Grand Café, no Boulevard des Capucines, dois irmãos de Lyon chamados Auguste e Louis Lumière cobraram um franco por cabeça a três dezenas de curiosos para assistirem a uma máquina que projectava sombras em movimento numa tela branca.
+Em 1895, no subterrâneo do Grand Café, no Boulevard des Capucines, dois irmãos de Lyon chamados Auguste e Louis Lumière cobraram um franco por cabeça a três dezenas de curiosos para assistirem a uma máquina que projectava sombras em movimento numa tela branca.
 
-O espectáculo durou pouco mais de dez minutos. Eram cenas prosaicas: operários a sair de uma fábrica, um comboio a chegar à estação de La Ciotat que, rezam as crónicas da época, fez os burgueses mais impressionáveis recuarem nas cadeiras, temendo serem esmagados pelo ferro e pelo vapor. Quando lhes perguntaram sobre o alcance daquela engenhoca, Antoine Lumière, o pai da dupla, desabafou com um pragmatismo desarmante: “É uma invenção sem qualquer futuro comercial”. Poucas vezes na história dos homens alguém terá errado com tanta solenidade.
+O espectáculo durou pouco mais de dez minutos. Eram cenas prosaicas: operários a sair de uma fábrica, um comboio a chegar à estação de La Ciotat que, rezam as crónicas da época, fez os burgueses mais impressionáveis recuarem nas cadeiras, temendo serem esmagados pelo ferro e pelo vapor. Quando lhes perguntaram sobre o alcance daquela engenhoca, Antoine Lumière, o pai da dupla, desabafou: “É uma invenção sem qualquer futuro comercial”. Poucas vezes na história dos homens alguém terá errado com tanta solenidade.
 
 O cinema não nasceu nos palácios nem nas academias literárias; nasceu das feiras populares, do engenho mecânico e da obsessão em congelar o tempo. Antes dos Lumière, Thomas Edison já mastigava o negócio com o seu cinetoscópio, mas Edison cometeu o erro dos avarentos: queria um espectador de cada vez, com o olho colado a uma caixa de madeira. Os franceses perceberam o essencial: a ilusão precisa da partilha, da cumplicidade da sala escura onde nos sentamos lado a lado com estranhos para sonhar em uníssono.
 
@@ -15,6 +15,9 @@ Pelo meio dessa era em que o celulóide ainda aprendia a respirar, houve quem vi
 Quando o som entrou em definitivo no circuito comercial com *The Jazz Singer*, em 1927, muitos puristas choraram o fim da pureza plástica. Erraram também. O som trouxe a fala cortante, o jazz, o compasso do *thriller*. Mais tarde veio a cor, a rebeldia estética da Nouvelle Vague a filmar na rua com câmara ao ombro, e os grandes mestres — de Fellini a Hitchcock, de Kurosawa a Leone — que elevaram a película ao estatuto da pintura ou da literatura.
 
 Hoje, inundados pelo vórtice digital, pelos ecrãs de bolso e pelos algoritmos que nos debitam imagens sem alma, esquecemo-nos com frequência do mistério original. O cinema começou como um mero truque de feira para enganar a retina humana durante dezasseis fracções de segundo. E acabou por se tornar na mais perfeita máquina de fabricar memória que o homem alguma vez inventou.
+
 ---
+
+
 
 
