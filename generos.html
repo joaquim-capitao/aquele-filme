@@ -35,7 +35,7 @@
     }
   </script>
   <style>
-    /* Suavização de scroll e seleção */
+    /* Suavização de deslocamento e seleção */
     body {
       background-color: #FAF8F5;
       font-family: 'Inter', sans-serif;
@@ -57,7 +57,7 @@
 <body class="min-h-screen text-brand-navy antialiased selection:bg-brand-terracottaLight selection:text-brand-terracotta">
 
   <header class="w-full max-w-4xl mx-auto px-4 pt-6 sm:pt-10 pb-4">
-    <!-- Botão de Voltar / Página Inicial (conforme screenshot) -->
+    <!-- Botão de Voltar / Página Inicial -->
     <div class="mb-5">
       <a href="https://joaquim-capitao.github.io/cinema" class="inline-flex items-center gap-2 px-4 py-2 bg-white border border-brand-pillBorder rounded-full text-brand-navy text-sm font-medium shadow-sm hover:border-brand-terracotta transition-colors duration-200">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-brand-navy" viewBox="0 0 24 24" fill="currentColor">
@@ -68,9 +68,8 @@
       </a>
     </div>
 
-    <!-- Título com ícone claquete idêntico ao estilo da imagem -->
+    <!-- Título com ícone claquete -->
     <div class="flex items-center gap-3 sm:gap-4 mb-3">
-      <!-- Ícone Claquete Terracota -->
       <div class="text-brand-terracotta">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 sm:w-10 sm:h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
@@ -81,29 +80,8 @@
       </h1>
     </div>
 
-    <!-- Divisor subtil correspondente à linha do design -->
+    <!-- Divisor subtil -->
     <hr class="border-t border-brand-pillBorder/70 mb-5">
-
-    <!-- Sub-cabeçalho de secção ("Críticas" / "Géneros de Filme") -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
-      <div class="inline-flex items-center bg-white px-5 py-2.5 rounded-2xl border border-brand-cardBorder shadow-sm">
-        <h2 class="text-lg sm:text-xl font-bold text-brand-navy">
-
-        </h2>
-      </div>
-
-      <!-- Seletor de Modo de Visualização para Mobile -->
-      <div class="inline-flex p-1 bg-white border border-brand-cardBorder rounded-xl shadow-xs self-start sm:self-auto">
-        <button id="btnViewCards" onclick="switchView('cards')" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center gap-1.5 bg-brand-terracotta text-white">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
-          Cartões
-        </button>
-        <button id="btnViewTable" onclick="switchView('table')" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-navyMuted hover:text-brand-navy transition-all duration-150 flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-          Tabela
-        </button>
-      </div>
-    </div>
   </header>
 
   <main class="w-full max-w-4xl mx-auto px-4 pb-16">
@@ -131,35 +109,19 @@
 
     <!-- Indicador de Resultados -->
     <div class="flex items-center justify-between text-xs text-brand-navyMuted mb-4 px-1">
-      <span id="resultsCount">A apresentar 15 estilos</span>
+      <span id="resultsCount">A apresentar 16 estilos</span>
       <span class="text-[11px] bg-brand-terracottaLight text-brand-terracotta font-semibold px-2 py-0.5 rounded-full border border-brand-terracotta/20">PT-PT</span>
     </div>
 
+    <!-- Contentor de Cartões -->
     <div id="cardsContainer" class="flex flex-col gap-3.5">
-      <!-- Os cartões são gerados via JavaScript para manter sincronização total -->
+      <!-- Os cartões são gerados dinamicamente via JavaScript -->
     </div>
 
-    <div id="tableContainer" class="hidden overflow-hidden bg-white border border-brand-cardBorder rounded-2xl shadow-sm">
-      <div class="overflow-x-auto custom-scroll">
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="bg-brand-cream border-b border-brand-cardBorder text-brand-navy font-title text-sm tracking-wide uppercase">
-              <th scope="col" class="py-3.5 px-4 font-bold min-w-[130px]">Género</th>
-              <th scope="col" class="py-3.5 px-4 font-bold min-w-[240px]">Descrição Narrativa</th>
-              <th scope="col" class="py-3.5 px-4 font-bold min-w-[210px]">Exemplos (Títulos PT)</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody" class="divide-y divide-brand-cardBorder text-sm">
-            <!-- As linhas da tabela são renderizadas via JS -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Mensagem de Sem Resultados -->
+    <!-- Mensagem de Ausência de Resultados -->
     <div id="noResults" class="hidden text-center py-12 px-4 bg-white border border-brand-cardBorder rounded-2xl shadow-sm mt-3">
       <p class="text-brand-terracotta font-semibold text-base mb-1">Nenhum estilo encontrado</p>
-      <p class="text-xs text-brand-navyMuted">Tente procurar com outro termo ou limpe a caixa de pesquisa.</p>
+      <p class="text-xs text-brand-navyMuted">Tente procurar por outro termo ou limpe a caixa de pesquisa.</p>
     </div>
   </main>
 
@@ -208,6 +170,13 @@
         examples: ["Super Baldas", "O Grande Lebowski"]
       },
       {
+        id: "comedia-romantica",
+        name: "Comédia Romântica",
+        icon: "💌",
+        desc: "Combina o humor leve e descontraído com o romance, explorando encontros inesperados, desencontros divertidos e a procura pelo par ideal.",
+        examples: ["O Amor Acontece", "Notting Hill", "Quatro Casamentos e um Funeral"]
+      },
+      {
         id: "romance",
         name: "Romance",
         icon: "❤️",
@@ -232,7 +201,7 @@
         id: "policial",
         name: "Policial / Noir",
         icon: "🕵️",
-        desc: "Focado em investigações criminais, detectives particulares, corrupção institucional e no submundo urbano das grandes metrópoles.",
+        desc: "Focado em investigações criminais, detetives particulares, corrupção institucional e no submundo urbano das grandes metrópoles.",
         examples: ["Se7en - Sete Pecados Mortais", "O Falcão Maltês"]
       },
       {
@@ -260,7 +229,7 @@
         id: "guerra",
         name: "Guerra",
         icon: "🎖️",
-        desc: "Retrata conflitos bélicos, táctica militar e o profundo impacto psicológico e humano vivido por soldados e civis.",
+        desc: "Retrata conflitos bélicos, tática militar e o profundo impacto psicológico e humano vivido por soldados e civis.",
         examples: ["O Resgate do Soldado Ryan", "Apocalypse Now"]
       },
       {
@@ -272,8 +241,6 @@
       }
     ];
 
-    let currentView = 'cards';
-
     function render() {
       const query = document.getElementById('genreSearch').value.toLowerCase().trim();
       const filtered = cinemaGenres.filter(item => {
@@ -282,7 +249,7 @@
                item.examples.some(ex => ex.toLowerCase().includes(query));
       });
 
-      // Contagem e botão limpar
+      // Contagem e botão de limpeza
       const countEl = document.getElementById('resultsCount');
       const clearBtn = document.getElementById('clearSearchBtn');
       const noResults = document.getElementById('noResults');
@@ -300,7 +267,7 @@
         noResults.classList.add('hidden');
       }
 
-      // Renderização do Modo Cartões (Mobile First)
+      // Renderização contínua em formato de cartões
       const cardsContainer = document.getElementById('cardsContainer');
       cardsContainer.innerHTML = filtered.map(item => `
         <article class="bg-white p-4 sm:p-5 rounded-2xl border border-brand-cardBorder shadow-sm transition hover:shadow-md hover:border-brand-terracotta/40">
@@ -326,31 +293,6 @@
           </div>
         </article>
       `).join('');
-
-      // Renderização do Modo Tabela
-      const tableBody = document.getElementById('tableBody');
-      tableBody.innerHTML = filtered.map(item => `
-        <tr class="hover:bg-brand-cream/50 transition-colors">
-          <td class="py-3.5 px-4 font-semibold text-brand-navy">
-            <div class="flex items-center gap-2">
-              <span>${item.icon}</span>
-              <span>${item.name}</span>
-            </div>
-          </td>
-          <td class="py-3.5 px-4 text-brand-navyMuted leading-relaxed">
-            ${item.desc}
-          </td>
-          <td class="py-3.5 px-4">
-            <div class="flex flex-col gap-1">
-              ${item.examples.map(ex => `
-                <span class="text-xs font-medium text-brand-terracottaDark">
-                  • ${ex}
-                </span>
-              `).join('')}
-            </div>
-          </td>
-        </tr>
-      `).join('');
     }
 
     function filterGenres() {
@@ -364,29 +306,7 @@
       render();
     }
 
-    function switchView(view) {
-      currentView = view;
-      const cardsContainer = document.getElementById('cardsContainer');
-      const tableContainer = document.getElementById('tableContainer');
-      const btnCards = document.getElementById('btnViewCards');
-      const btnTable = document.getElementById('btnViewTable');
-
-      if (view === 'cards') {
-        cardsContainer.classList.remove('hidden');
-        tableContainer.classList.add('hidden');
-        
-        btnCards.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center gap-1.5 bg-brand-terracotta text-white shadow-xs';
-        btnTable.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-navyMuted hover:text-brand-navy transition-all duration-150 flex items-center gap-1.5';
-      } else {
-        cardsContainer.classList.add('hidden');
-        tableContainer.classList.remove('hidden');
-
-        btnTable.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-150 flex items-center gap-1.5 bg-brand-terracotta text-white shadow-xs';
-        btnCards.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold text-brand-navyMuted hover:text-brand-navy transition-all duration-150 flex items-center gap-1.5';
-      }
-    }
-
-    // Inicialização da renderização
+    // Inicialização da página
     window.addEventListener('DOMContentLoaded', () => {
       render();
     });
