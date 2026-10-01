@@ -182,8 +182,8 @@
         border: none;
         padding: 10px 0;
         font-size: 0.92rem;
-        display: flex;
-        flex-direction: column;
+        display: block; /* Garante que o texto e elementos inline não quebrem em coluna */
+        line-height: 1.6;
       }
 
       td:first-child {
@@ -194,12 +194,14 @@
 
       td::before {
         content: attr(data-label);
+        display: block;
         font-size: 0.72rem;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.06em;
         color: var(--accent-warm);
         margin-bottom: 4px;
+        font-style: normal;
       }
 
       td:first-child::before {
@@ -241,9 +243,9 @@
             <span class="archetype-name">O Herói / A Heroína</span>
             <span class="archetype-alt">Protagonista</span>
           </td>
-          <td data-label="Função Dramática">Serve de perspetiva ao espectador; enfrenta uma vulnerabilidade inicial, toma as decisões morais cruciais e passa pela maior transformação existencial.</td>
+          <td data-label="Função Dramática">Serve de perspetiva ao espetador; enfrenta uma vulnerabilidade inicial, toma as decisões morais cruciais e passa pela maior transformação existencial.</td>
           <td data-label="Características Principais">Muitas vezes relutante no começo; descobre forças ocultas e sacrifica o egoísmo pelo bem comum.</td>
-          <td data-label="Exemplos no Cinema" class="examples">Neo (<em>Matrix</em>), Jamal Malik (<em>Quem Quer Ser Bilionário?</em>),</td>
+          <td data-label="Exemplos no Cinema" class="examples">Neo (<em>Matrix</em>), Jamal Malik (<em>Quem Quer Ser Bilionário?</em>)</td>
         </tr>
         <tr>
           <td data-label="Arquétipo">
